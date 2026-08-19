@@ -9,7 +9,7 @@ class GitcollApplicationTests {
 
 	@Test
 	void contextLoads() {
-//		Assertions.assertTrue(false);
+		Assertions.assertTrue(false);
 	}
 
 }
