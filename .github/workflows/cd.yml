@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+
 permissions:
   contents: read
   packages: write
@@ -28,7 +29,7 @@ jobs:
 
       - name: Build JAR
         run: ./mvnw clean package -DskipTests
-      
+
       - name: Build Docker image
         run: docker build -t gitcoll:${{ github.sha }} .
 
@@ -41,8 +42,8 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker tag gitcoll:${{ github.sha }} ghcr.io/${{ lower(github.repository_owner) }}/gitcoll:${{ github.sha }}
-          docker push ghcr.io/${{ lower(github.repository_owner) }}/gitcoll:${{ github.sha }}
+          docker tag gitcoll:${{ github.sha }} ghcr.io/pushpakumara89/gitcoll:${{ github.sha }}
+          docker push ghcr.io/pushpakumara89/gitcoll:${{ github.sha }}
 
       - name: Upload JAR artifact
         uses: actions/upload-artifact@v4
